@@ -1,0 +1,165 @@
+@charset "utf-8";
+html,body{-webkit-overflow-scrolling: auto;}
+
+/* 약관목록 */
+.terms_list{padding:20px}
+.terms_list li{
+    padding:24px 0 26px;
+    border-bottom:1px solid #f0f0f0;
+    font-size: 17px;
+}
+.terms_list li:first-child{
+    padding-top:4px;
+}
+.terms_list li a{display: block}
+
+/* 인증리스트 */
+
+.agree_wrap{
+    position:relative;
+    height: 100vh;
+}
+.agree_area{
+    padding: 0 20px 100px;
+}
+.agree_area h2{
+    padding-top:34px;
+    font-size:19px
+}
+.checkbox_box.all {
+    display: block;
+    margin-top: 7px;
+    padding-top: 21px;
+    padding-left: 38px;
+    padding-bottom: 15px;
+    min-height: 30px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 20px;
+}
+.checkbox_box.all input{
+    top:22px;
+}
+.checkbox_box.all label{
+    padding-top: 2px;
+}
+.checkbox_box.all label::after{
+     top:22px;
+     width:28px;
+     height:28px;
+     border:2px solid #cecece;
+ }
+.terms_certification {
+    margin-top: 7px;
+}
+.terms_certification li {
+    position: relative;
+    min-height:46px;
+    font-size: 17px;
+}
+.more_link{
+    position: absolute;
+    top:0px;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+}
+.more_link::after{
+     content: '';
+     position: absolute;
+     top:15px;
+     right:0;
+     width:20px;
+     height:20px;
+     background: url('../img/sub/ic-bold-arrow-right.png') no-repeat 50% 50%;
+     background-size:20px;
+ }
+.checkbox_box {
+    position: relative;
+    padding:0 25px 0 34px;
+}
+.checkbox_box input {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.checkbox_box input + label{
+    display: inline-block;
+    padding-top:12px;
+}
+.checkbox_box input + label::after {
+     content: '';
+     position: absolute;
+     top: 11px;
+     left: 0;
+     width: 24px;
+     height: 24px;
+     border:2px solid #cfcfcf;
+     border-radius:50%;
+     background: #ffffff;
+     cursor: pointer;
+ }
+.checkbox_box input:checked + label::after {
+     border:1px solid #6236ff;
+     background: #6236ff url('../img/sub/ic_checkbox_on.png') no-repeat 50% 50%;
+     background-size:24px;
+     cursor: pointer;
+ }
+.btn_confirm_area{
+    position: fixed;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding: 10px 20px 20px;
+    background-color: #FFFFFF;
+}
+.btn_confirm{
+    width: 100%;
+    height:54px;
+    border-radius:5px;
+    background-color: #c7eef0;
+    box-shadow: 0 2px 0px 0 #c4e9e9;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+}
+.btn_confirm.on{
+    background-color: #20cccf;
+    box-shadow: 0 2px 0px 0 #11aeaf;
+}
+.agree_information{
+    padding:20px;
+}
+.agree_information h2,.agree_information p{
+    font-size:15px;
+    color: #333333;
+}
+
+.agree_information .h2_dsc{
+    margin-top:20px;
+}
+.agree_information .more_dsc{
+    margin-top:20px;
+}
+/* table */
+.tbl_board{
+    margin-top:19px;
+    border-bottom:1px solid #e9e9e9;
+}
+.tbl_board th,.tbl_board td{
+    padding:9px 10px;
+    border-top:1px solid #e9e9e9;
+    color: #333333;
+}
+.tbl_board th{
+    text-align:left;
+    vertical-align: top;
+    font-weight: normal;
+}
+.tbl_board td{
+    border-left:1px solid #e9e9e9;
+}

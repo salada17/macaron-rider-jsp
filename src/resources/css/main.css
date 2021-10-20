@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.visual { width:100%;}
+.visual img { width:100%;}
+
+#mainConts { clear:both; position:relative; overflow:hidden; padding:30px 15px 0; background:#fff;}
+
+/* 닉네임박스 */
+.mainNickName { border-radius:8px; border:1px solid #dddddd; background:#eff2f8; margin-bottom:20px; overflow:hidden;}
+.mainNickName_ttl { background:#426ab2 url(../img/main/nickname_Bg.png) left center no-repeat; background-size:cover;  font-size:1rem; height:42px; line-height:42px; color:#fff; padding-left:15px;  box-sizing:border-box; font-weight:600;}
+.mainNickName_conts { padding:20px; overflow:hidden;}
+.mainNickName:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.mainNickName_cash { clear:both; border-bottom:2px solid #dddddd; padding:10px 0 15px 0; margin:0 0 10px 0;}
+.mainNickName_cash p { font-weight:600;}
+.mainNickName_cash_check { font-size:1.4rem; color:#4166b0; font-weight:600; padding:10px 0 0 0;}
+.price {color:#4166b0; font-weight:600; }
+
+.main_txt { padding:40px 0; font-size:0.9rem; text-align:center; line-height:140%; color:#666; letter-spacing:-0.5px;}
+
+/* 버튼 */
+.LineBtn { width:100%; border-radius:8px; border:2px solid #4166b0; padding:10px 0; box-sizing:border-box;  text-align:center; }
+.LineBtn button { color:#4166b0; font-weight:600; display:inline-block; font-size:1rem;}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>적립 리스트</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- meta http-equiv="X-UA-Compatible" content="IE=edge" -->
+    <!-- meta http-equiv="cache-control" content="no-cache"  -->
+    <!-- meta http-equiv="pragma" content="no-cache" -->
+    <!-- meta http-equiv="expires" content="-1"  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/point.css" /><!--[D] common.css 밑에 해당 css 추가 -->
+    <script src="../../../resources/js/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js" integrity="sha256-ngJY93C4H39YbmrWhnLzSyiepRuQDVKDNCWO2iyMzFw=" crossorigin="anonymous"></script>
+    <script src="../../../resources/js/moment.js"></script>
+    <script src="../../../resources/js/jquery.enhanced.core-1.0.0.js"></script>
+</head>
+<body>
+<!-- [D] cash_detail class는 기본 추가. isActive class는 인증후 추가 -->
+<div id="wrap" class="cash_detail isActive">
+    <input type="hidden" name="msg" value="${msg}">
+    <input type="hidden" name="flag" value="${flag}">
+<!--    <div id="none-selected" class="mc_whiteBtn" data-item="1"><button type="button"></button>적립하지않기</div>-->
+    <div class="point_list_wrap"><!-- [D] "point_list_wrap" 추가 -->
+        <ul class="point_list_area"><!-- [D] "point_list_area" 추가 -->
+            <!--<script id="pointList-template" type="text/x-handlebars-template">-->
+            <!-- {{#list}}-->
+            <!-- {{#if (eq enableYn 'Y')}}-->
+            <!-- [D] point list loop ST -->
+            <li>
+                <div class="content_top" id="main">
+                    <!-- {{#if pointYn}} -->
+                    <div class="list_area">
+                        <div class="logo">
+                            <!-- {{#if imgUrl}}-->
+                            <img src="https://via.placeholder.com/68x46.png/09f/fff" />
+                            <!-- <img src="<spring:eval expression="@properties['upload.url']"/>{{imgUrl}}"/>-->
+                            <!--{{else}}-->
+                            <!-- <div class="mc_pointNoLogo"><p style="opacity: 20%; font-size: 14px;">logo<br>Image</p></div>-->
+                            <!-- {{/if}}-->
+                        </div>
+                        <div class="title_area">
+                            <strong class="title">마카롱캐시</strong>
+                            <p class="dsc">앱 결제 시 운행요금의 3% 적립</p>
+                        </div>
+                        <!-- {{#if pointYn}}-->
+                        <button type="button" class="btn_choice" onclick="setService({{pointSvcIdx}})"></button>
+                        <!-- {{else}}-->
+                        <div class="btn_register" onclick="location.href='/realname/start.do?_token=${token}&pointSvcIdx={{pointSvcIdx}}'"></div>
+                        <!-- {{/if}}-->
+                    </div>
+                </div>
+
+                <div class="content_bottom" id="mc_answer_{{pointSvcIdx}}" >
+                    <div class="contents"><b>대상</b> : 마카롱M 회원
+
+                        <strong>내용</strong>
+                        - 택시 탑승 후 <span style="color:#6236ff">결제 완료 시 운행 요금의 3%</span>를 적립
+                        (예약비/호출비/서비스 이용료는 해당되지 않음)
+                        - 포인트 적립 확인 : 내 정보 / 마카롱캐시 메뉴에서
+                        확인 가능(택시 탑승 결제 완료 후 실시간 적립)
+
+                        <strong>안내사항</strong>
+                        - <span style="color:#6236ff">배차 완료 후 적용 불가</span>
+                        -포인트 관련 내용은 고객센터를 통해 문의
+                    </div>
+                </div>
+
+            </li>
+            <!--- notice list loop END -->
+            <!--    {{/if}}-->
+            <!--    {{/list}}-->
+            <!--</script>-->
+            <li>
+                <!-- <button type="button" class="btn_choice" onclick="setService({{pointSvcIdx}})"></button>-->
+                <div class="content_top">
+                    <!-- {{#if pointYn}} -->
+                    <div class="list_area">
+                        <div class="logo">
+                            <!-- {{#if imgUrl}}-->
+                            <img src="https://via.placeholder.com/68x46.png/09f/fff" />
+                            <!-- <img src="<spring:eval expression="@properties['upload.url']"/>{{imgUrl}}"/>-->
+                            <!-- {{else}}-->
+                            <!-- <div class="mc_pointNoLogo"><p style="opacity: 20%; font-size: 14px;">logo<br>Image</p></div>-->
+                            <!-- {{/if}}-->
+                        </div>
+                        <div class="title_area">
+                            <strong class="title">해피포인트</strong>
+                            <p class="dsc">앱 결제 시 운행요금의 3% 적립</p>
+                        </div>
+                        <!-- {{#if pointYn}}-->
+                        <button type="button" class="btn_choice" onclick="setService({{pointSvcIdx}})"></button>
+                        <!-- {else}}-->
+                        <div class="btn_register"><span class="blind">등록</span></div>
+                        <!-- {{/if}}-->
+                    </div>
+                </div>
+
+                <div class="content_bottom">
+                    <div class="contents"><b>대상</b> : 마카롱M 회원
+
+                        <strong>내용</strong>
+                        - 택시 탑승 후 <span style="color:#6236ff">결제 완료 시 운행 요금의 3%</span>를 적립
+                        (예약비/호출비/서비스 이용료는 해당되지 않음)
+                        - 포인트 적립 확인 : 내 정보 / 마카롱캐시 메뉴에서
+                        확인 가능(택시 탑승 결제 완료 후 실시간 적립)
+
+                        <strong>안내사항</strong>
+                        - <span style="color:#6236ff">배차 완료 후 적용 불가</span>
+                        -포인트 관련 내용은 고객센터를 통해 문의
+                    </div>
+                </div>
+            </li>
+        </ul><!-- //"point_list_area" 추가 -->
+
+
+        <!-- [D] btn 하단 배경컬러 추가로 인한 wrapper 추가 -->
+        <div class="btn_confirm_area">
+            <button type="button" class="btn_confirm">확인</button>
+        </div>
+        <!-- //btn 하단 배경컬러 추가로 인한 wrapper 추가 -->
+
+    </div><!-- //"point_list_wrap" 추가 -->
+</div>
+
+
+<!--<div class="mc_pointReg" onclick="alert('기존에 등록된 제휴사입니다.')"><p id="mc_pointList_icon">선택</p></div>  -->
+<script id="nothing-template" type="text/x-handlebars-template">
+    <div class="mc_nothing">
+        <div>
+            <img src="../../../resources/img/common/nothing00.png"/><br><br>
+            <span>내용이 없습니다.</span>
+        </div>
+    </div>
+</script>
+<script>
+$(document).ready(function() {
+    var li = $(".point_list_area li");
+    console.log(li);
+    li.click(function () {
+        $(this).toggleClass('block');
+        li.removeClass('on')
+        $(this).addClass('on');
+    })
+});
+
+function setService(pointSvcIdx, e) {
+
+    e.stopPropagation();
+    console.log(pointSvcIdx);
+    // obj
+    if (confirm('적립 방법을 변경 하시겠습니까?')) {
+        $.ajax({
+            url: "/api/point/riderPointSvc?pointSvcIdx=" + pointSvcIdx,  /*  수정필요 :: userPointSvc 변경 */
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+            success: function (data) {
+                //$.mbox.alert('정상적으로 변경 되었습니다.');
+                //border select 필요
+                location.reload(true);
+            },
+            error: function (xhr, status, error) {
+                //$.mbox.alert(error);
+            }
+        });
+    }
+
+    if (e.stopPropagation()) {
+        e.stopPropagation();
+    }
+}
+
+(function ($, win, doc) {
+
+    $('#none-selected').click(function () {
+        setService(0);
+    });
+
+    var msg = $('input[name=msg]').val();
+    var flag = $('input[name=flag]').val();
+
+    /*
+* '마카롱캐시' 실명인증 없이 '캐시내역 접근시' 해당페이지로 접근
+*/
+    if ((msg !== '' || msg !== null) && flag) {
+        alert(msg);
+    }
+
+    var totalCount = 0;
+    var token = "${token}";
+    var headers = {};
+
+    function loadData(callback) {
+        $.ajax({
+            url: "http://t.rider.macaront.com/board/ajax/partnerPointList.do?_token=" + token,
+            type: "GET",
+            dataType: "json",
+            headers: headers,
+            success: function (data) {
+                callback(data);
+            },
+            error: function (xhr, status, error) {
+                $.mbox.alert(error);
+            }
+        });
+    }
+
+    function loadBoards() {
+
+        loadData(function (data) {
+            totalCount = totalCount + data.list.length;
+            data.token = token;
+
+            var html = $('#pointList-template').template(data);
+            $(html).insertBefore(".mc_whiteBtn");
+
+            if (data.list.length == 0) {
+                var nothing = $('#nothing-template').template();
+                $(nothing).insertAfter("#wrap");
+            }
+
+        });
+
+    }
+
+
+    loadBoards();
+
+})(jQuery, window, document);
+
+</script>
+</body>
+</html>

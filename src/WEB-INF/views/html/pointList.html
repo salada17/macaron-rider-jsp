@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>마카롱캐시 내역</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/point.css" /><!--[D] common.css 밑에 해당 css 추가 -->
+    <script src="../../../resources/js/jquery-1.12.4.min.js"></script>
+    <script src="../../../resources/js/handlebars-v4.0.12.js"></script>
+    <script src="../../../resources/js/moment.js"></script>
+    <script src="../../../resources/js/jquery.enhanced.core-1.0.0.js"></script>
+</head>
+<body>
+<div id="wrap" class="cash_detail">
+    <div class="cash_information">
+        <ul>
+            <li>1,000원 이상 적립하여야 사용이 가능합니다.</li>
+            <li>100원 단위로 캐시 사용이 가능합니다.</li>
+        </ul>
+    </div>
+
+    <div class="use_cash_box">
+        <div class="cash_title_area">
+            <em class="title" id="title"> 사용 가능 캐시 </em>
+            <strong id="sumAmt" class="content">999,992,089원</strong>
+            <div class="lose_cash_area">
+                <em class="s_title">소멸 예정 캐시</em>
+                <em class="lose_cash_price">
+                    <span id="expireAmt" class="lose_price">999,999,000원</span>
+                    <span class="btn_information" onclick="cashPopup(this)"><span class="blind">캐시 사용 안내</span></span>
+                </em>
+            </div>
+        </div>
+   </div>
+  <!--   <div class="mc_subHeader">
+        <select id="pointCat" name="pointCat">
+            <option value="ALL" selected="selected">전체</option>
+            <option value="USED">캐시사용</option>
+            <option value="USED_CANCEL">캐시사용취소</option>
+            <option value="ACCUM">캐시적립</option>
+            <option value="CANCEL">캐시적립취소</option>
+        </select>
+    </div> -->
+
+<div class="middle-content">
+	<div class="middle-title">사용내역</div>
+  	<div class="main-dropdown">
+  		<p class="dropdown-head">
+  			<span class="head-title">전체보기</span>
+		</p>
+	  	<ul class="dropdown-content">
+	  		<li id="id_0" value="0">전체보기</li>
+	  		<li id="id_1" value="1">캐시사용</li>
+	  		<li id="id_2" value="2">캐시적립</li>
+	  		<li id="id_3" value="3">캐시소멸</li>
+	  	</ul>
+  	</div>
+</div>
+
+
+    <!--[D] cash list markup example 개발 적용엔 무시 밑에 원래 코드 있음 -->
+    <ul class="use_cash_list_wrap">
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data red">
+                <em class="use_cash_amt">-250원</em>
+                <span class="use_cash_note">캐시 소멸</span>
+            </div>
+        </li>
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data red">
+                <em class="use_cash_amt">-250원</em>
+                <span class="use_cash_note">캐시 소멸</span>
+            </div>
+        </li>
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data red">
+                <em class="use_cash_amt">-250원</em>
+                <span class="use_cash_note">캐시 소멸</span>
+            </div>
+        </li>
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data red">
+                <em class="use_cash_amt">-250원</em>
+                <span class="use_cash_note">캐시 소멸</span>
+            </div>
+        </li>
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data blue">
+                <em class="use_cash_amt">2,500원</em>
+                <span class="use_cash_note">캐시 적립</span>
+            </div>
+        </li>
+        <li class="use_cash_list cashList">
+            <div class="use_cash_infor">
+                <strong class="use_cash_title">마카롱택시 이용</strong>
+                <p class="use_cash_date">2020-07-19 12:12</p>
+            </div>
+            <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+            <div class="use_cash_data red">
+                <em class="use_cash_amt">-250원</em>
+                <span class="use_cash_note">캐시 소멸</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- [D] 기존 사용내역 cash list 영역 -->
+    <div class="use_cash_list_wrap">  <!-- [D] 기존 사용내역 cash list 영역에 "use_cash_list_wrap" wrapper 추가 -->
+        <div class="mc_cashList cashList">
+            <ul>
+                <li class="mc_cashList_ttl">마카롱택시 이용
+                    <span class="mc_cashList_amt info">-250원</span>
+                </li>
+                <li>
+                    <span class="date">2020-07-19 12:12</span>
+                    <span class="mc_cashList_note info">캐시 소멸</span>
+                </li>
+            </ul>
+        </div><!-- [D] 기존 사용내역 cash list 영역에 "cashList" class 추가 -->
+    </div>
+    <!-- //기존 사용내역 cash list 영역 -->
+
+    <div class="mc_whiteBtn" data-item="1"><button type="button">캐시 사용 내역 더보기</button></div>
+    <!-- //cash list markup example 개발 적용엔 무시 밑에 원래 코드 있음 -->
+
+
+    <div class="mc_whiteBtn" data-item="1" style="display:none;"><button type="button">캐시 사용 내역 더보기</button></div>
+    <input type="hidden" id="lastPointCat" value=""/>
+</div>
+
+<!-- [D] 디자인 추가된 팝업 앱에서 alert값 받아 적용 -->
+<script type="text/javascript">
+    function cashPopup(){
+        alert("소멸예정 캐시는 사용가능 캐시 중\n" +
+            "향후 30일 이내 유효기간이 경과하여\n" +
+            "소멸된 캐시의 합입니다.\n" +
+            "\n" +
+            "사용만료일은 지급 캐시별로 다를 수 있으며, 만료일이 가까운 순서대로\n" +
+            "사용됩니다.");
+    }
+</script>
+
+
+<script id="pointList-template" type="text/x-handlebars-template">
+
+<ul class="use_cash_list_wrap">
+    <!-- [D]적립& 소멸 색상값 들어간 새로운 구조 -->
+    {{#each list}}
+    <li class="use_cash_list cashList">
+        <div class="use_cash_infor">
+            <strong class="use_cash_title">
+                {{#if (eq pointType 'A')}}
+                    {{#if (eq pointStatus 'ACCUM')}}
+                        {{name}} {{pointTitle}}
+                    {{/if}}
+                    {{#if (eq pointStatus 'USED')}}
+                        {{name}} 사용
+                    {{/if}}
+                    {{#if (eq pointStatus 'CANCEL')}}
+                        {{name}} 적립 취소
+                    {{/if}}
+                    {{#if (eq pointStatus 'USED_CANCEL')}}
+                        {{name}} 사용취소
+                    {{/if}}
+                {{/if}}
+                {{#if (eq pointType 'E')}}
+                    {{pointTitle}}
+                {{/if}}
+                {{#if (eq pointType 'C')}}
+                    {{remarks}}
+                {{/if}}
+            </strong>
+            <p class="use_cash_date">{{formatTime regDatetime "YYYY-MM-DD"}}</p>
+        </div>
+        <!-- [D] "use_cash_bottom" add Class 적립일땐 blue, 소멸일땐 red -->
+        <div class="use_cash_data">
+            <em class="use_cash_amt">{{amt}}</em>
+            <span class="use_cash_note">{{note}}</span>
+        </div>
+    </li>
+
+    {{/each}}
+    </ul>
+    <!-- //적립& 소멸 색상값 들어간 새로운 구조 -->
+
+
+</script>
+
+<script id="nothing-template" type="text/x-handlebars-template">
+<div class="mc_nothing">
+    <div>
+        <span>이력이 없습니다.</span>
+    </div>
+</div>
+</script>
+<script>
+    var pointStatusList = ["ALL" ,"ACCUM" ,"CANCEL" ,"USED" ,"USED_CANCEL"];
+    var currentSeleted = "id_0";
+
+    Handlebars.registerHelper("formatTime", function (date, format) {
+        var mmnt = moment(date);
+        return mmnt.format(format);
+    });
+    Handlebars.registerHelper("before2", function () {
+        var before = moment().add("days",-2).valueOf();
+        return before;
+    });
+
+	/* drop down css */
+    function dropDownCss(){
+		//$(".cc").css("color","#26e9f0");
+
+    	// var dropHead = $(".main-dropdown");
+    	// dropHead.css("position","absolute");
+
+    	// var content = $(".dropdown-content");
+    	// content.css("display","none");
+    	// content.css("position","absolute");
+    	// content.css("background-color","#ffffff");
+    	// content.css("width","123px");
+    	// content.css("overflow","auto");
+    	// content.css("box-shadow","0px 5px 8px 0px rgba(0,0,0,0.21)");
+    	// content.css("right","4%");
+    	// content.css("margin-top","-21px");
+    	// content.css("text-align","center");
+    	// content.css("line-height","2.0em");
+    	// content.css("font-size","15px");
+    	// content.css("color","#272727");
+    	// content.css("z-index","1");
+
+    	// $("#id_0").css("color","#6236ff");
+    }
+
+    /* dropdown event */
+    function dropDown(e) {
+    	var event = e || window.event;
+
+    	$(".dropdown-content").toggle();
+
+    	if(event.stopPropagation()){
+            event.stopPropagation();
+        }
+    }
+
+    (function($, win, doc) {
+    	/* 첫 진입시 hide */
+    	$(".dropdown-content").hide();
+
+    	/* test용 css */
+    	dropDownCss();
+
+    	/* dropdown 이벤트  */
+    	$(".dropdown-head").click(function(){
+    		dropDown();
+    	});
+
+
+        var json = {};              /* ajax 호출 후 그 후에 html에 넣을 데이터 :: json.list = 배열*/
+        var currData = [];          /* 마카롱캐시 filter 변경 시 현재 데이터 담을 변수 */
+        var allData = [];           /* 전체데이터 */
+        var accumData = [];         /* 적립데이터 */
+        var cancelData = [];        /* 적립취소 데이터 */
+        var usedData = [];          /* 사용 데이터 */
+        var usedCancelData = [];    /* 사용취소 데이터 */
+
+        var title_name;             /* title_name */
+        var allAmt = 0;             /* 전체금액 */
+        var accumAmt = 0;           /* 적립금액 */
+        var cancelAmt = 0;          /* 적립취소금액 */
+        var usedAmt = 0;            /* 사용금액 */
+        var usedCancelAmt = 0;      /* 사용취소금액 */
+        var expireAmt = 0;          /* 소멸예정캐시 */
+
+        var $listHolder = $("#wrap");
+        var $pagingButton = $('.mc_whiteBtn');
+        var $top = $('.mc_top');
+        var pagingCount = 5;
+        var pagingClickCnt = 0;
+        var totalCount = 0;
+        var token = "${token}";
+        var headers = {};
+
+        /* drop down  */
+        $(".dropdown-content li").click(function(){
+    		/* START :: dropdown 이벤트 */
+    		$(".head-title").text($(this).text());  /* 현재 선택 된 상태*/
+    		$(".dropdown-content").toggle();		/* click 시 dropdown 자동 toggle */
+    		/* END :: dropdown 이벤트 */
+
+        	pagingClickCnt = 0;                     /* 페이징 초기화 */
+			totalCount = 0;                         /* 총 길이 초기화*/
+			$(".cashList").remove();             /* list 삭제 */
+			$(".mc_nothing").remove();              /* list 삭제 */
+			setBoard(json, pointStatusList[$(this).val()]);	/* board에 보여줄 데이터 셋팅 */
+
+			/* 20.11.18 디자인 변경 :: 선택시 색상 변경*/
+			$("#"+currentSeleted).css("color","#272727");
+			currentSeleted = $(this).attr("id");
+			$(this).css("color","#6236ff");
+    	});
+
+        /* 현재필요없는 기능 */
+        $("#pointCat").change(function () {
+            pagingClickCnt = 0;                     /* 페이징 초기화 */
+            totalCount = 0;                         /* 총 길이 초기화*/
+            $(".mc_cashList").remove();             /* list 삭제 */
+            $(".mc_nothing").remove();              /* list 삭제 */
+            setBoard(json);                         /* board에 보여줄 데이터 셋팅 */
+        });
+
+
+        /* board에 보여줄 데이터 셋팅 */
+        function setBoard(data, type){
+            /* var pointCat = $('#pointCat').val(); */
+            var pointCat = type;
+            var sumAmt = 0;
+
+            /* START :: 20.11.18 이후 필요 없는 버전
+            	1. currData : 필수
+            	2. sumAmt : 필요없음(디자인 변경으로 삭제) 혹시 몰라서 유지
+            	3. titleName : 필요없음(디자인 변경으로 삭제) 혹시 몰라서 유지
+            */
+            title_name = $('select[name="pointCat"] option:selected').text();
+            if(pointCat === 'ACCUM') {
+                currData = accumData;
+                sumAmt = accumAmt;
+            } else if(pointCat === 'CANCEL') {
+                currData = cancelData;
+                sumAmt = cancelAmt;
+            } else if(pointCat === 'USED') {
+                currData = usedData;
+                sumAmt = usedAmt;
+            } else if(pointCat === 'USED_CANCEL') {
+                currData = usedCancelData;
+                sumAmt = usedCancelAmt;
+            } else {
+                currData = allData;
+                sumAmt = allAmt;
+                title_name = '사용 가능 캐시';
+            }
+
+            //$('#title').text(title_name);
+            //$('#sumAmt').text(sumAmt.toLocaleString() + ' 원');  /* 필터된 캐시 */
+
+            /* END :: 20.11.18 이후 필요 없는 버전 */
+
+            $('#sumAmt').text(allAmt.toLocaleString() + ' 원');  /* 필터된 캐시 */
+            $('#expireAmt').text(expireAmt + ' 원');  /* 소멸 예정 캐시 :: 만료일로부터 -30일 데이터*/
+
+            totalCount = currData.length;
+
+            if(totalCount > pagingCount) /* 총 길이가 pagingCount보다 클경우 show */
+            {
+                $pagingButton.show();
+            }else{
+                $pagingButton.hide();
+            }
+
+            /* 페이징 처리 */
+            var pageCnt = Math.floor(totalCount/pagingCount);
+            var setData = [];
+
+            if(pageCnt > 0){
+                for(var i=0 ; i<pagingCount ; i++ ){
+                    setData.push(currData[i]);              /* PageCount 만큼 데이터 셋 */
+                }
+            } else {
+                for(var i=0 ; i<totalCount%pagingCount ; i++ ){
+                    setData.push(currData[i]);              /* 나머지 셋 : ex) pageCount = 5 이고 총길이 3일 때, 3개 데이터만 셋 */
+                }
+            }
+
+            console.log(totalCount);
+
+            /* 변경 된 데이터 처리 */
+            data.list = setData;
+            var html = $('#pointList-template').template(data);
+            $(html).insertBefore(".mc_whiteBtn");
+
+            /* 이력 0 이면 이력없음 표출 */
+            if(totalCount == 0){
+                var nothing = $('#nothing-template').template();
+                $(nothing).insertAfter("#wrap");
+                $top.hide();
+            }
+        }
+
+        /* 서버 비동기 통신 */
+        function loadData(callback) {
+            $.ajax({
+                url: "http://t.rider.macaront.com/board/ajax/pointList.do?_token=" + token,
+                type: "GET",
+                dataType: "json",
+                headers: headers,
+                success: function (result) {
+
+                    var data = result.list;
+                    console.log(data);
+                    expireAmt = result.data.expireAmt;
+                    json = data;
+                    //data.reverse();
+                    data.forEach(function(d){
+                        allData.push(d);
+                        allAmt += d.amt;
+                        if(d.pointStatus === 'ACCUM'){ // 만료일 -30
+                            accumData.push(d);
+                            accumAmt += d.amt;
+                            return true;
+                        }
+                        if(d.pointStatus === 'CANCEL'){
+                            cancelData.push(d);
+                            cancelAmt += d.amt;
+                            return true;
+                        }
+                        if(d.pointStatus === 'USED'){
+                            usedData.push(d);
+                            usedAmt += d.amt;
+                            return true;
+                        }
+                        if(d.pointStatus === 'USED_CANCEL'){ //만료일 -30
+                            usedCancelData.push(d);
+                            usedCancelAmt += d.amt;
+                            return true;
+                        }
+                    })
+
+                    callback(result);
+                },
+                error: function (xhr, status, error) {
+                    $.mbox.alert(error);
+                }
+            });
+        }
+
+
+
+        /* loadData : 마카롱캐시 사용내역 조회 */
+        function loadBoards(json) {
+            loadData(function(data){
+                setBoard(data);
+            });
+        }
+
+
+        /* 1. 사용내역 조회 시작 */
+        loadBoards();
+
+
+        /* #. 페이징버튼 */
+        $pagingButton.on('click', function() {
+            pagingClickCnt++;
+            var pageCnt = pagingCount*(pagingClickCnt+1);   /* 페이지 끝 */
+            var startIdx = pagingCount*pagingClickCnt-1;    /* 페이지 시작 */
+            var limitCnt = totalCount-pageCnt;              /* ex) 84개 중 80개 도달하면 paging button hide */
+            var setData = [];                               /* 보여줄 데이터 */
+            if(limitCnt <= 0){
+                pageCnt = totalCount;                       /* paging마지막 도달시 0으로 맞춤 :: hide 됨 */
+                $pagingButton.hide();
+            }
+            //페이징처리
+            for(var i=startIdx ; i<pageCnt ; i++){
+                setData.push(currData[i]);
+            }
+            json.list = setData;                                    /* 데이터 set */
+            var html = $('#pointList-template').template(json);     /* list update */
+            $(html).insertBefore(".mc_whiteBtn");                   /* 버튼추가 */
+        });
+
+
+    })(jQuery, window, document);
+</script>
+</body>
+</html>

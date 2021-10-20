@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+@font-face {
+font-family: 'NotoKrL';
+font-style: normal;
+font-weight: 100;
+src: local('Noto Sans Light'), local('NotoSans-Light'), url(font/NotoSans-Light.eot);
+src: url(font/NotoSans-Light.eot?#iefix) format('embedded-opentype'),
+url(font/NotoSans-Light.woff2) format('woff2'),
+url(font/NotoSans-Light.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NotoKrR';
+font-style: normal;
+font-weight: 300;
+src: local('Noto Sans Regular'), local('NotoSans-Regular'), url(font/NotoSans-Regular.eot);
+src: url(font/NotoSans-Regular.eot?#iefix) format('embedded-opentype'),
+url(font/NotoSans-Regular.woff2) format('woff2'),
+url(font/NotoSans-Regular.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NotoKrM';
+font-style: normal;
+font-weight: 500;
+src: local('Noto Sans Medium'), local('NotoSans-Medium'), url(font/NotoSans-Medium.eot);
+src: url(font/NotoSans-Medium.eot?#iefix) format('embedded-opentype'),
+url(font/NotoSans-Medium.woff2) format('woff2'),
+url(font/NotoSans-Medium.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NotoKrB';
+font-style: normal;
+font-weight: 700;
+src: local('Noto Sans Bold'), local('NotoSans-Bold'), url(font/NotoSans-Bold.eot);
+src: url(font/NotoSans-Bold.eot?#iefix) format('embedded-opentype'),
+url(font/NotoSans-Bold.woff2) format('woff2'),
+url(font/NotoSans-Bold.woff) format('woff');
+}
+
+@font-face {
+font-family: 'Gulim';
+font-style: normal;
+font-weight: 400;
+src: url(font/gulim.ttf) format('truetype'),
+url(font/gulim.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NanumGothic';
+font-style: normal;
+font-weight: 400;
+src: url(font/NanumGothic.ttf) format('truetype'),
+url(font/NanumGothic.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NanumMyeongjo';
+font-style: normal;
+font-weight: 400;
+src: url(font/NanumMyeongjo.ttf) format('truetype'),
+url(font/NanumMyeongjo.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NanumSquareR';
+font-style: normal;
+font-weight: 400;
+src: url(font/NanumSquareR.ttf) format('truetype'),
+url(font/NanumSquareR.woff) format('woff');
+}
+
+@font-face {
+font-family: 'NanumBarunGothic';
+font-style: normal;
+font-weight: 400;
+src: url(font/NanumBarunGothic.ttf) format('truetype'),
+url(font/NanumBarunGothic.woff) format('woff');
+}

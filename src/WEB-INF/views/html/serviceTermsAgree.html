@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>업무택시</title>
+<link rel="stylesheet" type="text/css" href="../../../resources/css/common_new.css" />
+<link rel="stylesheet" type="text/css" href="../../../resources/css/terms.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="agree_wrap">
+        <div class="agree_area">
+            <h2>업무택시 서비스 약관에 동의해주세요.</h2>
+            <em class="checkbox_box all">
+                <input type="checkbox" name="agree" id="all-chk" />
+                <label for="all-chk">모두 동의합니다.</label>
+            </em>
+            <ul class="terms_certification">
+                <li>
+                    <div class="checkbox_box">
+                        <input id="agree1" type="checkbox" name="agree" class="checkbox_box" />
+                        <label for="agree1">업무용 위치정보 제공 동의 (필수)</label>
+                    </div>
+                    <a href="locationAgree.html" class="more_link"></a>
+                </li>
+                <li>
+                    <div class="checkbox_box">
+                        <input id="agree2" type="checkbox" name="agree" class="checkbox_box" />
+                        <label for="agree2">이벤트 및 마케팅 활용 동의 (선택)</label>
+                    </div>
+                    <a href="eventAgree.html" class="more_link"></a>
+                </li>
+            </ul>
+        </div>
+        <!--[D] on class 추가시 버튼 활성화-->
+        <div class="btn_confirm_area">
+            <button type="button" class="btn_confirm">인증완료</button>
+        </div>
+    </div>
+</div>
+<script src="../../../resources/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $checkAll = $('#all-chk');
+        var checkBoxes = $('input[name="agree"]');
+
+        function btnConfirm(flag){
+            if(flag){
+                $(".btn_confirm").addClass("on");
+            }else{
+                $(".btn_confirm").removeClass("on");
+            }
+        };
+
+        $checkAll.change(function() {
+            var $this = $(this);
+            var checked = $this.prop('checked');
+            if(checked){
+                $('input[name="agree"]').prop('checked', true);
+                btnConfirm(true);
+            } else{
+                $('input[name="agree"]').prop('checked', false);
+                btnConfirm(false);
+            }
+        });
+
+        $('input:checkbox').change(function() {
+            var boxLength = checkBoxes.length;
+            var checkedLength = $('input[name="agree"]:checked').length;
+            var selectAll = (boxLength == checkedLength);
+            $checkAll.prop('checked', selectAll);
+
+            if($('#agree1').is(':checked')){
+                $("#all-chk").prop("checked", true);
+                btnConfirm(true);
+            }else{
+                $("#all-chk").prop("checked", false);
+                btnConfirm(false);
+            }
+        });
+    });
+</script>
+</body>
+</html>

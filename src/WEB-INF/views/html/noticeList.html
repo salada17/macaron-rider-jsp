@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>공지사항 리스트</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/notice.css" /><!--[D] common.css 밑에 해당 css 추가 -->
+    <script src="../../../resources/js/jquery-1.12.4.min.js"></script>
+    <script src="../../../resources/js/handlebars-v4.0.12.js"></script>
+    <script src="../../../resources/js/moment.js"></script>
+    <script src="../../../resources/js/jquery.enhanced.core-1.0.0.js"></script>
+</head>
+<body>
+<div id="wrap">
+    <div class="mc_top_notice"></div>
+    <div class="mc_whiteBtn" data-item="0" style="display:none;" ><button type="button"></button>더보기</div>
+</div>
+
+<!-- (e) #wrap -->
+<ul class="notice_list"> <!-- [D] ul wrapper 추가 -->
+    <!-- <script id="noticeList-template" type="text/x-handlebars-template">-->
+    <!-- [D] notice list loop ST -->
+    <!-- {{#each list}}-->
+    <!-- [D] 신규 리스트는 li에 on 클래스 추가 ex) <li id="read_{{boardIdx}}" class="on">-->
+     <li class="on">
+         <a href="http://t.rider.macaront.com/board/boardDetail.do?_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsIm5hbWUiOiLsi6ztg5zsmrAiLCJtb2JpbGVObyI6IjAxMC0yOTM0LTQxNTMiLCJiaXJ0aCI6IjIwMTItMDctMDkiLCJnZW5kZXIiOiJNIiwiZW1haWwiOiJzaW1AZ21haWwuY29tIiwiaWF0IjoxNTQ4MDQwMjg5fQ.yribOMbC165OWnB3rLj0xrbDHPPvIsrfB-yQf2Axk60&boardIdx=562&readYn=Y">
+            <strong class="subject">[공지]  마카롱 펫 택시 오픈 안내 (7/16~)</strong>
+             <div class="date_area">
+                 <em class="date">2020-07-16</em>
+                 <span class="new">NEW</span>
+             </div>
+         </a>
+     </li>
+    <!-- {{/each}}-->
+    <!--- notice list loop END -->
+    <!--</script>-->
+    <li class="on">
+        <a href="http://t.rider.macaront.com/board/boardDetail.do?_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsIm5hbWUiOiLsi6ztg5zsmrAiLCJtb2JpbGVObyI6IjAxMC0yOTM0LTQxNTMiLCJiaXJ0aCI6IjIwMTItMDctMDkiLCJnZW5kZXIiOiJNIiwiZW1haWwiOiJzaW1AZ21haWwuY29tIiwiaWF0IjoxNTQ4MDQwMjg5fQ.yribOMbC165OWnB3rLj0xrbDHPPvIsrfB-yQf2Axk60&boardIdx=562&readYn=Y">
+            <strong class="subject">[이벤트] 병원동행서비스 오픈 이벤트</strong>
+            <em class="date">2020-07-16</em>
+        </a>
+    </li>
+    <li>
+        <a href="http://t.rider.macaront.com/board/boardDetail.do?_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsIm5hbWUiOiLsi6ztg5zsmrAiLCJtb2JpbGVObyI6IjAxMC0yOTM0LTQxNTMiLCJiaXJ0aCI6IjIwMTItMDctMDkiLCJnZW5kZXIiOiJNIiwiZW1haWwiOiJzaW1AZ21haWwuY29tIiwiaWF0IjoxNTQ4MDQwMjg5fQ.yribOMbC165OWnB3rLj0xrbDHPPvIsrfB-yQf2Axk60&boardIdx=562&readYn=Y">
+            <strong class="subject">[공지] 마카롱 펫 택시 오픈 안내 (7/16~)</strong>
+            <em class="date">2020-07-16</em>
+        </a>
+    </li>
+    <li>
+        <a href="http://t.rider.macaront.com/board/boardDetail.do?_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsIm5hbWUiOiLsi6ztg5zsmrAiLCJtb2JpbGVObyI6IjAxMC0yOTM0LTQxNTMiLCJiaXJ0aCI6IjIwMTItMDctMDkiLCJnZW5kZXIiOiJNIiwiZW1haWwiOiJzaW1AZ21haWwuY29tIiwiaWF0IjoxNTQ4MDQwMjg5fQ.yribOMbC165OWnB3rLj0xrbDHPPvIsrfB-yQf2Axk60&boardIdx=562&readYn=Y">
+            <strong class="subject">[공지] 마카롱 펫 택시 오픈 안내-서울 (7/16~) 두줄일 경우는 이렇게 나옵니다.</strong>
+            <em class="date">2020-07-16</em>
+        </a>
+    </li>
+    <li>
+        <a href="http://t.rider.macaront.com/board/boardDetail.do?_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNyIsIm5hbWUiOiLsi6ztg5zsmrAiLCJtb2JpbGVObyI6IjAxMC0yOTM0LTQxNTMiLCJiaXJ0aCI6IjIwMTItMDctMDkiLCJnZW5kZXIiOiJNIiwiZW1haWwiOiJzaW1AZ21haWwuY29tIiwiaWF0IjoxNTQ4MDQwMjg5fQ.yribOMbC165OWnB3rLj0xrbDHPPvIsrfB-yQf2Axk60&boardIdx=562&readYn=Y#">
+            <strong class="subject">[공지] 마카롱 펫 택시 오픈 안내-서울 (7/16~) 두줄일 경우는 이렇게 나옵니다.</strong>
+            <em class="date">2020-07-16</em>
+        </a>
+    </li>
+</ul><!-- //ul wrapper 추가 -->
+
+<!--<script id="nothing-template" type="text/x-handlebars-template">-->
+<!--    <div class="mc_nothing">-->
+<!--        <div>-->
+<!--            <img src="../../../resources/img/common/nothing00.png"/><br><br>-->
+<!--            <span>내용이 없습니다.</span>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</script>-->
+<!--<script>-->
+
+<!--    function toggleAction(idx){-->
+<!--        console.log(idx);-->
+<!--        $answerArea = $("#mc_answer_"+idx);-->
+<!--        $answerArea.toggle();-->
+<!--    }-->
+
+<!--    Handlebars.registerHelper("formatTime", function (date, format) {-->
+<!--        var mmnt = moment(date);-->
+<!--        return mmnt.format(format);-->
+<!--    });-->
+<!--    Handlebars.registerHelper("before2", function () {-->
+<!--        var before = moment().add("days",-2).valueOf();-->
+<!--        return before;-->
+<!--    });-->
+
+<!--    (function($, win, doc) {-->
+
+<!--        var $listHolder = $("#wrap");-->
+<!--        var $pagingButton = $('.mc_whiteBtn');-->
+<!--        var $top = $('.mc_top');-->
+<!--        var totalCount = 0;-->
+<!--        var token = "${token}";-->
+<!--        var headers = {};-->
+<!--        function loadData(boardIdx, callback) {-->
+<!--            $.ajax({-->
+<!--                url: "http://t.rider.macaront.com/board/ajax/noticeList.do?_token=" + token + "&boardIdx=" + boardIdx,-->
+<!--                type: "GET",-->
+<!--                dataType: "json",-->
+<!--                headers: headers,-->
+<!--                success: function (data) {-->
+<!--                    callback(data);-->
+<!--                },-->
+<!--                error: function (xhr, status, error) {-->
+<!--                    $.mbox.alert(error);-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--        function loadBoards(boardIdx) {-->
+
+<!--            loadData(boardIdx, function(data){-->
+<!--                if(data.list.length == 10)-->
+<!--                {-->
+<!--                    var lastBoard = data.list[data.list.length - 1];-->
+<!--                    loadData(lastBoard.boardIdx, function(data){-->
+<!--                        console.log("data.list.length = " + data.list.length);-->
+<!--                        if(data.list.length == 0){-->
+<!--                            $pagingButton.hide();-->
+<!--                        }else{-->
+<!--                            $pagingButton.attr("data-item",lastBoard.boardIdx);-->
+<!--                            $pagingButton.show();-->
+<!--                        }-->
+<!--                    });-->
+<!--                }else{-->
+<!--                    $pagingButton.hide();-->
+<!--                }-->
+
+<!--                totalCount = totalCount + data.list.length;-->
+<!--                data.token = token;-->
+<!--                console.log(data.token);-->
+<!--                var html = $('#noticeList-template').template(data);-->
+<!--                //$listHolder.append(html);-->
+<!--                $(html).insertBefore(".mc_whiteBtn");-->
+
+<!--                if(totalCount == 0){-->
+<!--                    var nothing = $('#nothing-template').template();-->
+<!--                    $(nothing).insertAfter("#wrap");-->
+<!--                    $top.hide();-->
+<!--                }-->
+
+<!--            });-->
+
+<!--        }-->
+
+<!--        loadBoards(0);-->
+
+<!--        $pagingButton.on('click', function() {-->
+<!--            loadBoards($(this).attr("data-item"));-->
+<!--        });-->
+
+<!--    })(jQuery, window, document);-->
+<!--</script>-->
+</body>
+</html>

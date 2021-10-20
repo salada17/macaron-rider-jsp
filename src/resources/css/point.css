@@ -1,0 +1,357 @@
+@import url('fonts.css');
+
+*{font-family: NotoSans;}
+
+/* 마카롱캐시 적립리스트 */
+html,body{height: 100%}
+#wrap.cash_detail{
+    height: 100%;
+    background-color: #f7f7f8;
+}
+.point_list_wrap{
+    position: relative;
+    min-height: 100%;
+    background-color: #f6f7f8;
+}
+.point_list_wrap .point_list_area{
+    padding: 16px 20px 100px;
+}
+.point_list_wrap li{
+    position: relative;
+    margin-top:9px;
+    padding: 15px 14px;
+    border-radius: 8px;
+    border: solid 2px #FFFFFF;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.point_list_wrap li:after{
+    content: '';
+    position: absolute;
+    bottom:0;
+    left:50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 24px;
+    background: url('../img/sub/ic-chevron-down.png') no-repeat bottom center;
+    background-size:contain;
+}
+.point_list_wrap .content_top{
+    min-height: 54px;
+}
+.point_list_wrap .list_area .logo{
+    overflow: hidden;
+    float: left;
+    width: 68px;
+    border-radius: 3px;
+    margin-right: 12px;
+}
+.point_list_wrap .list_area .logo img{
+    height: 46px;
+    border-radius: 3px;
+}
+.point_list_wrap .list_area .title_area{
+    overflow: hidden;
+    padding: 8px 25px 0 0;
+    min-height: 46px;
+}
+.point_list_wrap .list_area .title{
+    font-size: 16px;
+    font-weight: 500;
+}
+.point_list_wrap .list_area .dsc{
+    padding-top: 1px;
+    font-size: 13px;
+    opacity: 0.5;
+}
+.point_list_wrap .list_area .btn_register{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    background: url('../img/sub/ic-circle.png') no-repeat 12px 30px;
+    background-size: 24px 24px;
+}
+.point_list_wrap .content_bottom{
+    display:none;
+}
+
+.point_list_wrap .content_bottom .contents{
+    margin-top: 10px;
+    padding-bottom: 18px;
+    white-space: pre-line;
+    font-size: 12px;
+}
+.point_list_wrap .btn_confirm_area{
+    position: fixed;
+    left:0px;
+    bottom: 0;
+    right:0;
+    padding:10px 20px 20px;
+    background-color: #f6f7f8;
+}
+.point_list_wrap .btn_confirm{
+    width: 100%;
+    height:54px;
+    border-radius:5px;
+    background-color: #20cccf;
+    box-shadow: 0 2px 0px 0 #11aeaf;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+}
+.point_list_wrap .btn_choice{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    width: 100%;
+    height:88px;
+    outline: none;
+}
+.point_list_wrap li.on {
+    border: solid 2px #20cccf;
+}
+.point_list_wrap li.block:after{
+    background: url('../img/sub/ic-chevron-up.png') no-repeat bottom center;
+    background-size:contain;
+}
+
+.point_list_wrap li.block .content_bottom{
+    display: block;
+}
+.isActive .point_list_wrap li {
+    border: none;
+}
+
+/* cash detail */
+button{
+    outline:none;
+}
+.cash_information{
+    padding:24px 20px 0 20px;
+}
+.cash_information ul{
+    padding: 6px 43px 10px 10px;
+    border-radius: 8px;
+    background-color: #f0ecff;
+}
+.cash_information li{
+    position: relative;
+    margin-top:5px;
+    padding-left:10px;
+    font-family: NotoKrL;
+    color: #4425fb;
+}
+.cash_information li:after{
+    content:'';
+    position: absolute;
+    top:8px;
+    left:0;
+    width:3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #4425fb;
+}
+.use_cash_box{
+    margin:10px 20px 0;
+    padding: 20px 20px 16px;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+}
+.cash_title_area{
+    line-height: 1.5;
+    text-align: center;
+}
+.cash_title_area .title{
+    display: block;
+    font-size: 15px;
+    color: #272727;
+}
+.cash_title_area .content{
+    display: block;
+    margin-top:4px;
+    font-family: NotoKrL;
+    font-size: 36px;
+    font-weight: 300;
+    color: #6236ff;
+}
+.lose_cash_area{
+    position: relative;
+    margin-top: 16px;
+    padding: 15px 0 0 85px;
+    border-top: 1px solid #f0f0f0;
+    text-align: right;
+}
+.lose_cash_area .s_title{
+    position: absolute;
+    top:15px;
+    left:0;
+    font-size:14px;
+    color: #303030;
+    opacity:0.5;
+}
+.lose_cash_price .lose_price{
+    display:inline-block;
+    margin-right: 5px;
+    line-height: 1.4;
+    vertical-align: top;
+    font-size: 15px;
+    color: #303030;
+}
+.btn_information{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    vertical-align: top;
+    background:url('../img/common/ic-question.png') right center no-repeat #ffffff;
+    background-size:20px 20px;
+}
+
+.middle-content{
+    position: relative;
+    margin-top:32px;
+    padding: 0 20px;
+    z-index: 1;
+}
+.middle-content:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.middle-content .middle-title{
+    float: left;
+    font-size: 17px;
+    color: #272727;
+}
+.middle-content .main-dropdown{
+    position: absolute;
+    top:0;
+    right:20px;
+    min-width: 100px;
+
+}
+.dropdown-head{
+    position: absolute;
+    top:0;
+    right: 0;
+}
+.dropdown-head .head-title{
+    display: block;
+    padding-left:25px;
+    background: url("../img/sub/ic-arrow-more-small.png") no-repeat 0 0;
+    background-size: 20px 20px;
+    font-size:15px;
+}
+.dropdown-content{
+    position: absolute;
+    top:0;
+    left:-20px;
+    width:123px;
+    padding: 10px 0 12px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+.dropdown-content li{
+    height:39px;
+    line-height:39px;
+    text-align: center;
+    font-size: 15px;
+    color: #272727;
+}
+.dropdown-content li#id_0{
+    color: #6236ff;
+}
+.use_cash_list_wrap{
+    margin:15px 20px 0;
+    padding-bottom: 87px;
+}
+.use_cash_list{
+    position: relative;
+    border-bottom:1px solid #e6e6e6;
+}
+.use_cash_list:after{
+    content:'';
+    clear: both;
+    display: block;
+}
+.use_cash_list .use_cash{
+    font-size: 16px;
+    color: #272727;
+}
+.use_cash_infor{
+    padding:16px 80px 13px 0;
+}
+.use_cash_infor .use_cash_title{
+    font-weight:normal;
+    font-size: 16px;
+    color: #272727;
+}
+.use_cash_infor .use_cash_date{
+    font-size: 13px;
+    color: #272727;
+    opacity: 0.5;
+}
+
+.use_cash_data{
+    position: absolute;
+    top:50%;
+    right: 0;
+    margin-top: -17px;
+    text-align: right;
+}
+.use_cash_data.red{
+    color: #fb5858;
+}
+.use_cash_data.blue{
+    color: #20cccf;
+}
+.use_cash_data .use_cash_amt{
+    display: block;
+    font-size: 16px;
+}
+.use_cash_data .use_cash_note{
+    display: block;
+    font-size: 13px;
+}
+
+/* 하단 내역 더보기 버튼 */
+.mc_whiteBtn{
+    position: fixed;
+    bottom:0;
+    height: 66px;
+    border-bottom:0;
+    box-shadow: inset 0 1px 0 0 rgba(39, 39, 39, 0.2);
+    line-height: 60px;
+}
+.mc_whiteBtn button{
+    font-family: 'NotoKrM';
+    font-size: 18px;
+    font-weight: 500;
+    color: #272727;
+    opacity: 0.6;
+}
+
+/* 이력없음 내용 */
+.mc_nothing{
+    position: static;
+    display: block;
+    margin-top: 85px;
+    z-index: 0;
+}
+
+@media all and (max-width: 280px) {
+    .cash_title_area .content{
+        font-size: 32px;
+    }
+    .lose_cash_price{
+        white-space: nowrap;
+    }
+    .lose_cash_price .lose_price{
+        margin-right: 0;
+    }
+}
